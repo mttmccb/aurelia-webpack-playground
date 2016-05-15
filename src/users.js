@@ -11,7 +11,10 @@ export class Users {
     http.configure(config => {
       config
         .useStandardConfiguration()
-        .withBaseUrl('https://api.github.com/');
+        .withBaseUrl('https://api.github.com/')
+        .withInterceptor({
+          response: (response) => response.json()
+        });
     });
 
     this.http = http;
@@ -19,7 +22,6 @@ export class Users {
 
   activate() {
     return this.http.fetch('users')
-      .then(response => response.json())
       .then(users => this.users = users);
   }
 }
