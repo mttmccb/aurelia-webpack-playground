@@ -1,11 +1,15 @@
 import {inject, computedFrom} from 'aurelia-framework';
 import {Validator, ValidationEngine, length, required, date, datetime, email, equality, url, numericality} from 'aurelia-validatejs';
+import {DialogService} from 'aurelia-dialog';
+import {Prompt} from './prompt';
 
+@inject(DialogService)
 export class Welcome {
   person;
   heading = 'Welcome to the Aurelia Navigation App';
   previousValue = this.fullName;
-  constructor() {
+  constructor(dialogService) {
+    this.dialogService = dialogService;
     this.person = new Person();
     this.validator = new Validator(this.person)
       .ensure('firstName')
@@ -29,9 +33,17 @@ export class Welcome {
     this.observer.dispose();
   }
   submit() {
-    this.validator.validate();
-    this.previousValue = this.fullName;
-    alert(`Welcome, ${this.fullName}!`);
+    // this.validator.validate();
+    // this.previousValue = this.fullName;
+    // alert(`Welcome, ${this.fullName}!`);
+    this.dialogService.open({ viewModel: 'prompt', model: `Are you ${this.fullName}?`}).then(response => {
+      if (!response.wasCancelled) {
+        console.log('good');
+      } else {
+        console.log('bad');
+      }
+      console.log(response.output);
+    });
   }
 
   canDeactivate() {
