@@ -1,21 +1,35 @@
-//import {computedFrom} from 'aurelia-framework';
+import {inject, computedFrom} from 'aurelia-framework';
+import {Validator, ValidationEngine, length, required, date, datetime, email, equality, url, numericality} from 'aurelia-validatejs';
 
 export class Welcome {
+  person;
   heading = 'Welcome to the Aurelia Navigation App';
-  firstName = 'John';
-  lastName = 'Doe';
   previousValue = this.fullName;
+  constructor() {
+    this.person = new Person();
+    this.validator = new Validator(this.person)
+      .ensure('firstName')
+        .required()
+      .ensure('lastName')
+        .required();
 
-  //Getters can't be directly observed, so they must be dirty checked.
-  //However, if you tell Aurelia the dependencies, it no longer needs to dirty check the property.
-  //To optimize by declaring the properties that this getter is computed from, uncomment the line below
-  //as well as the corresponding import above.
-  //@computedFrom('firstName', 'lastName')
-  get fullName() {
-    return `${this.firstName} ${this.lastName}`;
+    this.reporter = ValidationEngine.getValidationReporter(this.person);
+    this.observer = this.reporter.subscribe(result => {
+      console.log(result);
+    });
   }
 
+  @computedFrom('person')
+  get fullName() {
+    return this.person?
+      `${this.person.firstName} ${this.person.lastName}`:
+      '';
+  }
+  detached() {
+    this.observer.dispose();
+  }
   submit() {
+    this.validator.validate();
     this.previousValue = this.fullName;
     alert(`Welcome, ${this.fullName}!`);
   }
@@ -31,4 +45,9 @@ export class UpperValueConverter {
   toView(value) {
     return value && value.toUpperCase();
   }
+}
+
+class Person {
+  firstName = 'John';
+  lastName = 'Doe';
 }
