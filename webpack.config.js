@@ -35,6 +35,9 @@ module.exports = {
       'window.jQuery': 'jquery' // this doesn't expose jQuery property for window, but expose it to every module
     })
   ],
+  resolve: {
+    root: path.resolve('./src')
+  },
   module: {
     loaders: [
       { test: /\.js$/, loader: 'babel', exclude: /node_modules/, query: { presets: ['es2015-loose', 'stage-1'], plugins: ['transform-decorators-legacy'] } },
