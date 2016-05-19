@@ -16,7 +16,7 @@ import { bootstrap } from 'aurelia-bootstrapper-webpack';
 
 import 'bootstrap-webpack';
 import 'font-awesome-webpack';
-import '../styles/styles.css';
+import '-!style!css!../styles/styles.css';
 
 bootstrap(function(aurelia) {
   aurelia.use
