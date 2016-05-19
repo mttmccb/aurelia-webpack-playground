@@ -1,0 +1,11 @@
+<template>
+  <require from="./person/person"></require>
+  <section class="au-animate">
+    <h1>${peopleService.people.length} People <button class="btn btn-primary" click.trigger="createPerson()">Add</button> <button class="btn btn-warning" click.trigger="clearPeople()">Clear</button></h1>
+    <div class="row">
+      <div class="col-md-4" repeat.for="person of peopleService.people">
+        <person model.bind="person" edit.call="editPerson(person)" remove.call="removePerson(person)"></person>
+      </div>
+    </div>  
+  </section>
+</template>

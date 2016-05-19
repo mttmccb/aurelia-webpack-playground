@@ -1,0 +1,15 @@
+<template>
+  <ai-dialog>
+    <ai-dialog-body>
+      <div class="content">
+        <input attach-focus="true" value.bind="card.front" placeholder="Front" />
+        <input value.bind="card.back" placeholder="Back" />
+      </div>
+    </ai-dialog-body>
+
+    <ai-dialog-footer>
+      <button class="btn btn-default" click.trigger="controller.cancel()">Cancel</button>
+      <button class="btn btn-success" click.trigger="save(card)">Save</button>
+    </ai-dialog-footer>
+  </ai-dialog>
+</template>
