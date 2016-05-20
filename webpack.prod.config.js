@@ -28,7 +28,7 @@ module.exports = {
       ]
     }),
     new HtmlWebpackPlugin({
-      title: 'Aurelia webpack skeleton - ' + pkg.version,
+      title: 'Aurelia webpack playground - ' + pkg.version,
       template: 'index.prod.html',
       filename: 'index.html'
     }),

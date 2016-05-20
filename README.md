@@ -1,4 +1,6 @@
-# aurelia-skeleton-navigation-webpack
+# aurelia-webpack-playground
+
+*This readme needs, updating, although most of the information below is still valid, I've clearly added other plugins to the project.
 
 ## Getting Started
 
