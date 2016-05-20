@@ -19,11 +19,11 @@ export class People {
   }
 
   editPerson(person) {
-      this.dialogService.open({ viewModel: 'person/edit-person', model: person }).then(response => {
-          if (!response.wasCancelled) {
-              //this.peopleService.createCard(response.output);
-          }
-      });
+    this.dialogService.open({ viewModel: 'person/edit-person', model: person }).then(response => {
+      if (!response.wasCancelled) {
+        this.peopleService.editPerson(response.output);
+      }
+    });
   }
 
   removePerson(person) {

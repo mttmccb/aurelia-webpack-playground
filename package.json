@@ -2,9 +2,9 @@
   "engines": {
     "node": "4.4.1 || 4.4.x"
   },
-  "name": "aurelia-skeleton-navigation-webpack",
-  "version": "1.0.0-beta.1.2.4",
-  "description": "A starter kit for building a standard navigation-style app with Aurelia and webpack.",
+  "name": "aurelia-webpack-playground",
+  "version": "0.1.0",
+  "description": "A (superhero) playground for aurelia with webpack",
   "main": "index.js",
   "scripts": {
     "dev": "webpack-dev-server --config webpack.config.js --hot --inline --progress --devtool eval",
@@ -18,20 +18,18 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/aurelia/skeleton-navigation.git"
+    "url": "git+ssh://git@github.com/mttmccb/aurelia-webpack-playground.git"
   },
   "keywords": [
     "aurelia",
-    "skeleton",
-    "navigation",
     "webpack"
   ],
-  "author": "Martijn Boland",
+  "author": "Matt McCabe",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/aurelia/skeleton-navigation/issues"
+    "url": "https://github.com/mttmccb/aurelia-webpack-playground/issues"
   },
-  "homepage": "https://github.com/aurelia/skeleton-navigation#readme",
+  "homepage": "https://github.com/mttmccb/aurelia-webpack-playground#readme",
   "dependencies": {
     "aurelia-bootstrapper-webpack": "^1.0.0-beta.1.0.0",
     "aurelia-dialog": "^0.6.0",

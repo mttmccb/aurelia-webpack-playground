@@ -1,15 +1,23 @@
 <template>
   <ai-dialog>
     <ai-dialog-body>
-      <div class="content">
-        <input attach-focus="true" value.bind="card.front" placeholder="Front" />
-        <input value.bind="card.back" placeholder="Back" />
+      <div class="form-group">
+        <label for="firstName">First Name</label>
+        <input attach-focus="true"  class="form-control" value.bind="person.firstName" id="firstName" placeholder="First Name">
+      </div>
+      <div class="form-group">
+        <label for="lastName">Last Name</label>
+        <input class="form-control" value.bind="person.lastName" id="lastName" placeholder="Last Name">
+      </div>
+      <div class="form-group">
+        <label for="superPower">Superpower</label>
+        <input class="form-control" value.bind="person.superPower" id="superPower" placeholder="Superpower">
       </div>
     </ai-dialog-body>
 
     <ai-dialog-footer>
       <button class="btn btn-default" click.trigger="controller.cancel()">Cancel</button>
-      <button class="btn btn-success" click.trigger="save(card)">Save</button>
+      <button class="btn btn-success" click.trigger="save(person, originalPerson)">Save</button>
     </ai-dialog-footer>
   </ai-dialog>
 </template>
