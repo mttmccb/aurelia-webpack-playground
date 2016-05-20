@@ -1,11 +1,9 @@
 export class App {
   configureRouter(config, router) {
     config.options.pushState = true;
-    config.title = 'Aurelia';
+    config.title = 'Hero Chronicle';
     config.map([
-      { route: ['', 'welcome'], name: 'welcome',      moduleId: 'welcome',      nav: true, title: 'Welcome' },
-      { route: 'users',         name: 'users',        moduleId: 'users',        nav: true, title: 'Github Users' },
-      { route: 'child-router',  name: 'child-router', moduleId: 'child-router', nav: true, title: 'Child Router' }
+      { route: ['','people'],      name: 'people',   moduleId: 'people',   nav: true, title: 'Superheroes' }
     ]);
 
     this.router = router;
