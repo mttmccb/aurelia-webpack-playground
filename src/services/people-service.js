@@ -1,7 +1,11 @@
 import {PersonModel} from '../person/person-model';
+import {Notification} from 'aurelia-notification';
+import {inject} from 'aurelia-framework';
 
+@inject(Notification)
 export class PeopleService {
-  constructor() {
+  constructor(notification) {
+    this.notification = notification;
     this.people = [];
     this.people.push(new PersonModel());
   }
@@ -11,6 +15,7 @@ export class PeopleService {
     person.firstName = 'Green';
     person.lastName = 'Arrow';
     person.superPower = 'Luck';
+    this.notification.success('New Hero Added');
     this.people.push(person);
   }
 
@@ -21,6 +26,7 @@ export class PeopleService {
       this.people[index].lastName = personObject.person.lastName;
       this.people[index].superPower = personObject.person.superPower;
     }
+    this.notification.success('Hero Updated');
   }
 
   removePerson(person) {
@@ -28,9 +34,11 @@ export class PeopleService {
     if (index > -1) {
       this.people.splice(index, 1);
     }
+    this.notification.success('Hero Removed');
   }
 
   clearPeople() {
     this.people = [];
+    this.notification.success('Heroes Removed');
   }
 }
