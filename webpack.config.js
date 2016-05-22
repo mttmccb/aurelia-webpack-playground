@@ -24,8 +24,9 @@ module.exports = {
   plugins: [
     new AureliaWebpackPlugin({
       includeSubModules: [
+        { moduleId: 'aurelia-validatejs' },
         { moduleId: 'aurelia-dialog' },
-        { moduleId: 'aurelia-validatejs' }
+        { moduleId: 'aurelia-notification' }
       ]
     }),
     new ProvidePlugin({
