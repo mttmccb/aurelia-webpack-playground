@@ -1,0 +1,20 @@
+{
+  "heroes": "Heroes",
+  "hero": "Hero",
+  "chronicle": "Chronicle",
+  "add": "Add",
+  "clear": "Clear",
+  "edit": "Edit",
+  "remove": "Remove",
+  "save": "Save",
+  "cancel": "Cancel",
+  "first_name": "First Name",
+  "last_name": "Last Name",
+  "superpower": "Superpower",
+  "superheroes": "Superheroes",
+  "toggle_navigation": "Toggle Navigation",
+  "new_hero_added": "New Hero Added",
+  "hero_removed": "Hero Removed",
+  "heroes_removed": "Heroes Removed",
+  "hero_updated": "Hero Updated"
+}

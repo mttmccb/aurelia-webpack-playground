@@ -11,6 +11,7 @@ Promise.config({
     // Enable monitoring
     monitoring: false
 });
+import 'intl'; // add this line if having issues with aurelia-18n in safari and ie
 
 import { bootstrap } from 'aurelia-bootstrapper-webpack';
 
@@ -18,6 +19,20 @@ import 'bootstrap-webpack';
 import 'font-awesome-webpack';
 import '-!style!css!../node_modules/humane-js/themes/libnotify.css';
 import '-!style!css!../styles/styles.css';
+
+import XHR from 'i18next-xhr-backend';
+
+function loadLocales(url, options, callback, data) {
+  try {
+    // include locale files as webpack chunks
+    let waitForLocale = require('bundle!json!../locales/' + url + '.json');
+    waitForLocale((locale) => {
+      callback(locale, {status: '200'});
+    });
+  } catch (e) {
+    callback(null, {status: '404'});
+  }
+}
 
 bootstrap(function(aurelia) {
   aurelia.use
@@ -33,14 +48,31 @@ bootstrap(function(aurelia) {
     .plugin('aurelia-validatejs')
     .plugin('aurelia-notification', config => {
       config.configure({
-        translate: false,  // 'true' needs aurelia-i18n to be configured
+        translate: true,
         notifications: {
           'success': 'humane-libnotify-success',
           'error': 'humane-libnotify-error',
           'info': 'humane-libnotify-info'
         }
       });
+    })
+    .plugin('aurelia-i18n', (instance) => {
+      instance.i18next.use(XHR);
+
+      return instance.setup({
+        backend: {
+          loadPath: '{{lng}}/{{ns}}',
+          parse: (data) => data,
+          ajax: loadLocales
+        },
+        lng: 'de',
+        attributes: ['t', 'i18n'],
+        fallbackLng: 'en',
+        debug: false,
+        //compatibilityJSON: 'v1',
+        ns: ['translation']
+      });
     });
-    
+
   aurelia.start().then(() => aurelia.setRoot('app', document.body));
 });
