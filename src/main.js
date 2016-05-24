@@ -65,7 +65,7 @@ bootstrap(function(aurelia) {
           parse: (data) => data,
           ajax: loadLocales
         },
-        lng: 'de',
+        lng: 'en',
         attributes: ['t', 'i18n'],
         fallbackLng: 'en',
         debug: false,

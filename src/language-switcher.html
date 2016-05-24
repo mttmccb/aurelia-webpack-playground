@@ -1,0 +1,9 @@
+<template>
+    <form class="navbar-form navbar-left" role="language">
+        <div class="input-group">
+            <select value.bind="selectedLanguage" change.delegate="switchLanguage()" id="lg" class="form-control">
+                <option repeat.for="language of languages" value.bind="language.value">${language.text}</option>
+            </select>
+        </div>
+    </form>
+</template>

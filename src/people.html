@@ -1,7 +1,7 @@
 <template>
   <require from="./person/person"></require>
   <section class="au-animate">
-    <h1>${peopleService.people.length} Superheroes <button class="btn btn-primary" click.trigger="createPerson()">Add</button> <button class="btn btn-warning" click.trigger="clearPeople()">Clear</button></h1>
+    <h1>${ 'superhero_count' | t: { 'count': peopleService.people.length } } <button class="btn btn-primary" click.trigger="createPerson()" t="add">Add</button> <button class="btn btn-warning" click.trigger="clearPeople()" t="clear">Clear</button></h1>
     <div class="row">
       <div class="col-md-4" repeat.for="person of peopleService.people">
         <person model.bind="person" edit.call="editPerson(person)" remove.call="removePerson(person)"></person>

@@ -1,6 +1,10 @@
 {
-  "heroes": "Heroes",
-  "hero": "Hero",
+  "title": "$t(hero_plural) $t(and) $t(villian_plural)",
+  "and": "und",
+  "hero": "Held",
+  "hero_plural": "Helden",
+  "villian": "Villian",
+  "villian_plural": "Villians",
   "chronicle": "Chronicle",
   "add": "Add",
   "clear": "Clear",
@@ -11,10 +15,13 @@
   "first_name": "First Name",
   "last_name": "Last Name",
   "superpower": "Superpower",
-  "superheroes": "Superheroes",
+  "superhero": "Superheld",
+  "superhero_plural": "Superhelden",
+  "superhero_count": "{{count}} $t(superhero)",
+  "superhero_count_plural": "{{count}} $t(superhero_plural)",
   "toggle_navigation": "Toggle Navigation",
-  "new_hero_added": "New Hero Added",
-  "hero_removed": "Hero Removed",
-  "heroes_removed": "Heroes Removed",
-  "hero_updated": "Hero Updated"
+  "new_hero_added": "New $t(hero) Added",
+  "hero_removed": "$t(hero) Removed",
+  "heroes_removed": "$t(hero_plural) Removed",
+  "hero_updated": "$t(hero) Updated"
 }
