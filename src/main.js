@@ -1,16 +1,12 @@
 /*eslint-disable no-var,no-unused-vars*/
 var Promise = require('bluebird'); // Promise polyfill for IE11
-// Bluebird config
 Promise.config({
-    // Enable warnings
-    warnings: true,
-    // Enable long stack traces
-    longStackTraces: true,
-    // Enable cancellation
-    cancellation: false,
-    // Enable monitoring
-    monitoring: false
+  warnings: true,
+  longStackTraces: true,
+  cancellation: false,
+  monitoring: false
 });
+
 import 'intl'; // add this line if having issues with aurelia-18n in safari and ie
 
 import { bootstrap } from 'aurelia-bootstrapper-webpack';

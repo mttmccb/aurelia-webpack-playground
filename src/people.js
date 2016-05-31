@@ -1,3 +1,4 @@
+/*eslint-disable no-var,no-unused-vars*/
 import {PeopleService} from './services/people-service';
 import {inject} from 'aurelia-framework';
 import {EditPerson} from './person/edit-person';
