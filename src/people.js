@@ -1,13 +1,24 @@
+/*eslint-disable no-var,no-unused-vars*/
 import {PeopleService} from './services/people-service';
 import {inject} from 'aurelia-framework';
 import {EditPerson} from './person/edit-person';
 import {DialogService} from 'aurelia-dialog';
+import {I18N, BaseI18N} from 'aurelia-i18n';
+import {EventAggregator} from 'aurelia-event-aggregator';
 
-@inject(PeopleService, DialogService)
-export class People {
-  constructor(peopleService, dialogService) {
+@inject(I18N, Element, EventAggregator, PeopleService, DialogService)
+export class People extends BaseI18N {
+  constructor(i18n, element, ea, peopleService, dialogService) {
+    super(i18n, element, ea);
     this.peopleService = peopleService;
     this.dialogService = dialogService;
+    this.i18n = i18n;
+    this.element = element;
+  }
+
+  attached() {
+    super.attached();
+    this.i18n.setLocale('en');
   }
 
   createPerson() {
