@@ -15,7 +15,7 @@ export class PeopleService {
     person.firstName = 'Green';
     person.lastName = 'Arrow';
     person.superPower = 'Luck';
-    this.notification.success('New Hero Added');
+    this.notification.success('new_hero_added');
     this.people.push(person);
   }
 
@@ -26,7 +26,7 @@ export class PeopleService {
       this.people[index].lastName = personObject.person.lastName;
       this.people[index].superPower = personObject.person.superPower;
     }
-    this.notification.success('Hero Updated');
+    this.notification.success('hero_updated');
   }
 
   removePerson(person) {
@@ -34,11 +34,11 @@ export class PeopleService {
     if (index > -1) {
       this.people.splice(index, 1);
     }
-    this.notification.success('Hero Removed');
+    this.notification.success('hero_removed');
   }
 
   clearPeople() {
     this.people = [];
-    this.notification.success('Heroes Removed');
+    this.notification.success('heroes_removed');
   }
 }
