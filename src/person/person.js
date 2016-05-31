@@ -1,6 +1,7 @@
 import {bindable} from 'aurelia-framework';
+import {BaseI18N} from 'aurelia-i18n';
 
-export class Person {
+export class Person extends BaseI18N {
   @bindable model;
   @bindable edit;
   @bindable remove;

@@ -1,17 +1,19 @@
-import {DialogController} from 'aurelia-dialog';
 import {inject} from 'aurelia-framework';
+import {DialogController} from 'aurelia-dialog';
+import {I18N, BaseI18N} from 'aurelia-i18n';
+import {EventAggregator} from 'aurelia-event-aggregator';
 
-@inject(DialogController)
-export class EditPerson {
+@inject(I18N, Element, EventAggregator, DialogController)
+export class EditPerson extends BaseI18N {
+  constructor(i18n, element, ea, controller) {
+    super(i18n, element, ea);
+    this.controller = controller;
+  }
 
   person = {
     firstName: '',
     lastName: ''
   };
-
-  constructor(controller) {
-    this.controller = controller;
-  }
 
   activate(person) {
     this.originalPerson = person;
